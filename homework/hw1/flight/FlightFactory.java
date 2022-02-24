@@ -14,4 +14,12 @@ public class FlightFactory {
 
         else return null;
     }
+
+    public static Flight passangerFlight(Integer type, passangerCapacity) {
+        if (type.equals("commercialFlight"))
+            return new CommercialFlight(airline,destination);
+
+        else return null;
+
+
 }

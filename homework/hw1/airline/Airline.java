@@ -7,6 +7,9 @@ import java.util.Objects;
 
 public class Airline {
 
+    private static Map<String, Airline> airlineCache = new HashMap<>();
+
+
     private String name;
 
     public Airline(String name) throws NullParameterException, BadParameterException {

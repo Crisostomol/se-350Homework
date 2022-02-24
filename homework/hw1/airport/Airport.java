@@ -7,6 +7,9 @@ import java.util.Objects;
 
 public class Airport {
 
+    private static Map<String, Airport> airportCache = new HashMap<>();
+
+
     private String name;
 
     public Airport(String name) throws NullParameterException, BadParameterException {
