@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
-public class Flight {
+public class CommercialFlight implements Flight{
 
     private Airline airline;
     private Airport origin;
@@ -16,7 +16,7 @@ public class Flight {
     private UUID flightNumber;
     private Date departureTime;
 
-    public Flight(Airline airline, Airport origin, Airport destination) throws NullParameterException {
+    public CommercialFlight(Airline airline, Airport origin, Airport destination) throws NullParameterException {
         setAirline(airline);
         setOrigin(origin);
         setDestination(destination);

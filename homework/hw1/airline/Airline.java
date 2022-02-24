@@ -1,4 +1,4 @@
-package homeworl.hw1.airline;
+package homework.hw1.airline;
 
 import homework.hw1.exception.BadParameterException;
 import homework.hw1.exception.NullParameterException;
