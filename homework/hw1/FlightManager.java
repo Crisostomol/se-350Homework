@@ -1,32 +1,13 @@
 package homework.hw1;
 
-public final class FlightManager {
+import homework.hw1.airline.Airline;
+import homework.hw1.airport.Airport;
+import homework.hw1.flight.Flight;
 
-    private static FlightManager ourInstance;
+import java.util.Optional;
 
-    private static List <Flight> flights;
 
-    public static FlightManager getInstance() throws Exception {
-        if (ourInstance == null)
-            ourInstance = new FlightManager();
-
-        return ourInstance;
+    public interface FlightManager {
+        public String createFlight(String type, Airline airline, Airport origin, Airport destination, int passengerCapacity) throws Exception;
+        public Optional<Flight> getFlightByFlightNumber(String flightNumber) throws Exception;
     }
-
-    private FlightManager() {
-        flights = new ArrayList<Flight>();
-    }
-
-    public String createFlight(String type, Airline airline, Airport origin, Airport destination) {
-        Flight flight = FlightFactory.createFlight(type, airline, origin, destination);
-        flights.add(flight);
-
-        return flight.getFlightNumber();
-    }
-
-    public Optional<Flight> getFlightByFlightNumber(String flightNumber) {
-        return flights.stream()
-                .filter(flt -> flt.getFlightNumber().equals(flightNumber))
-                .findFirst();
-    }
-}

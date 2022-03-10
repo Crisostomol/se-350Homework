@@ -2,7 +2,7 @@ package homework.hw1.flight;
 
 import homework.hw1.exception.BadParameterException;
 
-public interface Flight {
+public interface flight {
     public String getFlightNumber();
 }
 

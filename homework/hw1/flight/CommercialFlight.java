@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
-public class CommercialFlight implements Flight{
+public abstract class Flight {
 
     private Airline airline;
     private Airport origin;
@@ -16,7 +16,7 @@ public class CommercialFlight implements Flight{
     private UUID flightNumber;
     private Date departureTime;
 
-    public CommercialFlight(Airline airline, Airport origin, Airport destination) throws NullParameterException {
+    public Flight(Airline airline, Airport origin, Airport destination) throws NullParameterException {
         setAirline(airline);
         setOrigin(origin);
         setDestination(destination);
@@ -73,16 +73,16 @@ public class CommercialFlight implements Flight{
         return departureTime.toString();
     }
 
+    public String getPassengerCapcity() {
+        throw new UnsupportedOperationException();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Flight flight = (Flight) o;
-        return Objects.equals(airline, flight.airline) &&
-                Objects.equals(origin, flight.origin) &&
-                Objects.equals(destination, flight.destination) &&
-                Objects.equals(flightNumber, flight.flightNumber) &&
-                Objects.equals(departureTime, flight.departureTime);
+        return Objects.equals(airline, flight.airline) && Objects.equals(origin, flight.origin) && Objects.equals(destination, flight.destination) && Objects.equals(flightNumber, flight.flightNumber) && Objects.equals(departureTime, flight.departureTime);
     }
 
     @Override
@@ -93,11 +93,11 @@ public class CommercialFlight implements Flight{
     @Override
     public String toString() {
         return "Flight{" +
-                "airline=" + getAirline() +
-                ", origin=" + getOrigin() +
-                ", destination=" + getDestination() +
-                ", flightNumber=" + getFlightNumber() +
-                ", departureTime=" + getDepartureTime() +
+                "airline=" + airline +
+                ", origin=" + origin +
+                ", destination=" + destination +
+                ", flightNumber=" + flightNumber +
+                ", departureTime=" + departureTime +
                 '}';
     }
 }

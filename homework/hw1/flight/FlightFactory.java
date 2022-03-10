@@ -8,18 +8,19 @@ public class FlightFactory {
     private FlightFactory() {
     }
 
-    public static Flight createFlight(String type, Airline airline, Airport origin, Airport destination) {
-        if (type.equals("commercialFlight"))
-            return new CommercialFlight(airline,destination);
+    public static Flight createFlight(String type, Airline airline, Airport origin, Airport destination, int passengerCapacity) {
+        try {
+            if (type.equals("commercialFlight")) {
+                return new CommercialFlight(airline, origin, destination);
+            } else if (type.equals("passengerFlight")) {
+                return new PassengerFlight(airline, origin, destination, passengerCapacity);
+            }
 
-        else return null;
+        } catch(NullParameterException e) {
+            return null;
+        }
+
+        return null;
     }
-
-    public static Flight passangerFlight(Integer type, passangerCapacity) {
-        if (type.equals("commercialFlight"))
-            return new CommercialFlight(airline,destination);
-
-        else return null;
-
 
 }

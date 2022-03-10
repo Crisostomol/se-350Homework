@@ -5,10 +5,9 @@ import homework.hw1.exception.NullParameterException;
 
 import java.util.Objects;
 
+import java.util.Objects;
+
 public class Airline {
-
-    private static Map<String, Airline> airlineCache = new HashMap<>();
-
 
     private String name;
 
